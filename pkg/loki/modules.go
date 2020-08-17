@@ -276,6 +276,7 @@ func (t *Loki) initStore() (_ services.Service, err error) {
 			t.cfg.StorageConfig.BoltDBShipperConfig.Mode = local.ShipperModeReadWrite
 		}
 	}
+	loki_storage.RegisterCustomIndexClients(t.cfg.StorageConfig, prometheus.DefaultRegisterer)
 
 	t.store, err = loki_storage.NewStore(t.cfg.StorageConfig, t.cfg.ChunkStoreConfig, t.cfg.SchemaConfig, t.overrides, prometheus.DefaultRegisterer)
 	if err != nil {
