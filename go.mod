@@ -57,7 +57,7 @@ require (
 	github.com/weaveworks/common v0.0.0-20200914083218-61ffdd448099
 	go.etcd.io/bbolt v1.3.5-0.20200615073812-232d8fc87f50
 	go.uber.org/atomic v1.7.0
-	golang.org/x/crypto v0.0.0-20201002170205-7f63de1d35b0
+	golang.org/x/crypto v0.0.0-20201221181555-eec23a3978ad
 	golang.org/x/net v0.0.0-20201006153459-a7d1128ccaa0
 	google.golang.org/grpc v1.32.0
 	gopkg.in/alecthomas/kingpin.v2 v2.2.6
@@ -69,7 +69,7 @@ require (
 
 replace github.com/hpcloud/tail => github.com/grafana/tail v0.0.0-20201004203643-7aa4e4a91f03
 
-replace github.com/Azure/azure-sdk-for-go => github.com/Azure/azure-sdk-for-go v36.2.0+incompatible
+replace github.com/Azure/azure-sdk-for-go => github.com/Azure/azure-sdk-for-go v52.5.0+incompatible
 
 // Keeping this same as Cortex to avoid dependency issues.
 replace k8s.io/client-go => k8s.io/client-go v0.19.2
@@ -86,3 +86,5 @@ replace google.golang.org/grpc => google.golang.org/grpc v1.29.1
 // Same as Cortex
 // Using a 3rd-party branch for custom dialer - see https://github.com/bradfitz/gomemcache/pull/86
 replace github.com/bradfitz/gomemcache => github.com/themihai/gomemcache v0.0.0-20180902122335-24332e2d58ab
+
+replace github.com/cortexproject/cortex v1.4.1-0.20201022071705-85942c5703cf => github.com/Kyligence/cortex v1.4.0
