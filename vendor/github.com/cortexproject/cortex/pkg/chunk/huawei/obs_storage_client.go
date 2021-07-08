@@ -43,12 +43,11 @@ func (c *ObsStorageConfig) Validate() error {
 	if c.Bucket == "" {
 		return errors.New("no Huawei OBS Bucket specified")
 	}
-	if c.AccessKey != "" && c.SecretKey == "" ||
-		c.AccessKey == "" && c.SecretKey != "" {
+	if c.AccessKey == "" || c.SecretKey == "" {
 		return errors.New("must supply both an Access Key and Secret Key or neither")
 	}
 	if c.Endpoint == "" {
-		return errors.New("endpoint must be specified")
+		return errors.New("obs endpoint must be specified")
 	}
 	return nil
 }
@@ -59,6 +58,10 @@ type ObsStorage struct {
 }
 
 func NewObsStorage(cfg *ObsStorageConfig) (*ObsStorage, error) {
+	err := cfg.Validate()
+	if err != nil {
+		return nil, err
+	}
 	obsClient, err := obs.New(cfg.AccessKey, cfg.SecretKey, cfg.Endpoint)
 	if err != nil {
 		return nil, err
